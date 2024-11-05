@@ -1,32 +1,38 @@
-<?php
-// Definición de la variable $var con varios tipos de datos
-$valores = [null,true,false,0,1,-1,0.0,1.5,"0","1","Hola","10.5",[],[1, 2, 3],];
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Conversión</title>
+</head>
+<body>
+    <h1>Resultado de Conversión de Tipos de Datos</h1>
 
-// Función para realizar las conversiones
-function mostrarConversiones($valor) {
-    // Convertir a int
-    $intValue = (int)$valor;
+    <?php
+    // Recibir el valor de la variable $var desde el formulario
+    $var = $_POST['var'];
 
-    // Convertir a boolean
-    $boolValue = (bool)$valor;
+    // Mostrar el valor original
+    echo "<p><strong>Valor original:</strong> $var</p>";
 
-    // Convertir a string
-    $stringValue = (string)$valor;
+    // Conversión a int
+    $intVal = (int)$var;
+    echo "<p><strong>Como int:</strong> $intVal</p>";
 
-    // Convertir a float
-    $floatValue = (float)$valor;
+    // Conversión a boolean
+    $boolVal = (bool)$var;
+    echo "<p><strong>Como boolean:</strong> " . ($boolVal ? "true" : "false") . "</p>";
 
-    // Imprimir los resultados
-    echo "Valor original: " . var_export($valor, true) . "\n";
-    echo "Int: " . $intValue . "\n";
-    echo "Boolean: " . ($boolValue ? 'true' : 'false') . "\n";
-    echo "String: '" . $stringValue . "'\n";
-    echo "Float: " . $floatValue . "\n";
-    echo "--------------------------\n";
-}
+    // Conversión a string
+    $strVal = (string)$var;
+    echo "<p><strong>Como string:</strong> \"$strVal\"</p>";
 
-// Recorrer la lista de valores y mostrar las conversiones
-foreach ($valores as $valor) {
-    mostrarConversiones($valor);
-}
-?>
+    // Conversión a float
+    $floatVal = (float)$var;
+    echo "<p><strong>Como float:</strong> $floatVal</p>";
+    ?>
+
+    <br>
+    <a href="pagina.html">Volver</a>
+</body>
+</html>
