@@ -9,27 +9,33 @@
     <h1>Resultado de Conversión de Tipos de Datos</h1>
 
     <?php
-    // Recibir el valor de la variable $var desde el formulario
-    $var = $_POST['var'];
+    // Verificar si el formulario ha sido enviado y si 'var' está presente en $_POST
+    if (isset($_POST['var'])) {
+        // Recibir el valor de la variable $var desde el formulario
+        $var = $_POST['var'];
 
-    // Mostrar el valor original
-    echo "<p><strong>Valor original:</strong> $var</p>";
+        // Mostrar el valor original
+        echo "<p><strong>Valor original:</strong> $var</p>";
 
-    // Conversión a int
-    $intVal = (int)$var;
-    echo "<p><strong>Como int:</strong> $intVal</p>";
+        // Conversión a int
+        $intVal = (int)$var;
+        echo "<p><strong>Como int:</strong> $intVal</p>";
 
-    // Conversión a boolean
-    $boolVal = (bool)$var;
-    echo "<p><strong>Como boolean:</strong> " . ($boolVal ? "true" : "false") . "</p>";
+        // Conversión a boolean
+        $boolVal = (bool)$var;
+        echo "<p><strong>Como boolean:</strong> " . ($boolVal ? "true" : "false") . "</p>";
 
-    // Conversión a string
-    $strVal = (string)$var;
-    echo "<p><strong>Como string:</strong> \"$strVal\"</p>";
+        // Conversión a string
+        $strVal = (string)$var;
+        echo "<p><strong>Como string:</strong> \"$strVal\"</p>";
 
-    // Conversión a float
-    $floatVal = (float)$var;
-    echo "<p><strong>Como float:</strong> $floatVal</p>";
+        // Conversión a float
+        $floatVal = (float)$var;
+        echo "<p><strong>Como float:</strong> $floatVal</p>";
+    } else {
+        // Si el formulario no ha sido enviado, mostrar un mensaje
+        echo "<p>Por favor, selecciona un valor para convertir y haz clic en 'Convertir'.</p>";
+    }
     ?>
 
     <br>
